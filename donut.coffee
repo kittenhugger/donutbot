@@ -23,20 +23,14 @@ module.exports = (robot) ->
     text = msg.message.text
 
     @exec command2, (error, stdout, stderr) ->
-      randomNumber = Math.floor(Math.random() * 30) + 1
-      console.log "Generated random number #{randomNumber}"
-
+      
       numberOfDonuts = stdout
       console.log "Number of donuts detected #{stdout}"
 
       sNumberOfDonuts = numberOfDonuts.toString()
       s2NumberOfDonuts = sNumberOfDonuts.trim()
 
-      if randomNumber==30
-        randomNumber2 = Math.floor(Math.random() * 1000) + 1
-        msg.send "The number of donuts available is currently #{randomNumber2}"      
-
-      else if s2NumberOfDonuts == "0"
+      if s2NumberOfDonuts == "0"
         msg.send "There are currently no donuts here :cry:"
       else
         msg.send "The number of donuts available is currently #{numberOfDonuts}"
